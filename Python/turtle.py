@@ -88,3 +88,44 @@ for prettycolor in ["red", "orange", "yellow"]:
   amy.penup()
   amy.forward(100)
   amy.pendown()
+
+# Awesome drawing
+t = turtle.Turtle()
+t.color("cyan")
+
+for side in range(20):
+    t.speed(0)
+    t.forward(10*side)
+    t.right(120)
+
+# Functions
+jack = turtle.Turtle()
+jack.color("yellow")
+
+def draw_square():
+    for side in range(4):
+        jack.forward(100)
+        jack.right(90)
+
+draw_square()
+
+# Flower
+# Write a function here that creates a
+# turtle and draws a shape with it.
+def triangle_boogie(color, start):
+  t = turtle.Turtle()
+  t.color(color)
+  t.speed(0)
+  t.width(5)
+  t.right(start)
+  for shape in range(6):
+    for side in range(3):
+      t.forward(100)
+      t.right(120)
+    t.right(15)
+  t.hideturtle()
+
+# Call the function multiple times.
+triangle_boogie("red", 0)
+triangle_boogie("orange", 120)
+triangle_boogie("blue", 240)
