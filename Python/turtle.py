@@ -171,3 +171,81 @@ t.pendown()
 balloon(t, "purple")
 
 t.hideturtle()
+
+# One Object two names
+romeo = turtle.Turtle()
+montague = romeo
+
+montague.color("red")
+montague.width(5)
+
+montague.forward(100)
+montague.right(90)
+montague.forward(100)
+montague.right(90)
+romeo.color("white")
+montague.forward(100)
+montague.right(90)
+montague.forward(100)
+montague.right(90)
+
+# Draw a flower out of squares
+def draw_square(some_turtle):
+    for side in range(4):
+        some_turtle.forward(100)
+        some_turtle.right(90)
+
+romeo = turtle.Turtle()
+romeo.color("violet")
+romeo.speed(8)
+for petal in range(6):
+    draw_square(romeo)
+    romeo.right(60)
+
+romeo.hideturtle()
+
+# Function practice
+romeo = turtle.Turtle()
+romeo.color("violet")
+romeo.width(5)
+romeo.speed(8)
+
+def draw_square(some_turtle):
+    for side in range(4):
+        some_turtle.forward(100)
+        some_turtle.right(90)
+
+def draw_flower(some_turtle):
+    for petal in range(6):
+        draw_square(some_turtle)
+        some_turtle.right(60)
+        some_turtle.hideturtle()
+
+draw_flower(romeo)
+
+# Heart Drawing ♥
+romeo = turtle.Turtle()
+juliet = turtle.Turtle()
+
+juliet.color("misty rose")
+juliet.width(3)
+
+romeo.color("violet")
+romeo.width(3)
+
+romeo_last_name = "montague"
+
+romeo.left(40)
+romeo.forward(100)
+for side in range(185):
+    romeo.forward(1)
+    romeo.left(1)
+romeo.hideturtle()
+
+if romeo_last_name == "montague":
+    juliet.left(140)
+    juliet.forward(100)
+    for side in range(185):
+        juliet.forward(1)
+        juliet.right(1)
+    juliet.hideturtle()
