@@ -2,8 +2,9 @@ import time
 import random
 
 #Grabbing objects
-sword = 0
-assists = 9
+points = random.randint(2,50)
+assists = random.randint(0,15)
+steals = random.randint(0,10)
 
 choices = ("You can only chose between A, B or C.")
 
@@ -35,36 +36,31 @@ def start():
         scottiePippen()
     else:
         printSleep(choices)
-        intro()
+        start()
 
 
 #Option throwing a rock to the orc
 def teammate():
-    # printSleep("The orc is stunned, but regains control. He begins ")
-    # printSleep("running towards you again. Will you:")
-    # printSleep("A. Run\nB. Throw another rock\nC. Run towards a nearby cave\n")
-    # answer = input(">>> ").lower()
-    # if "a" in answer:
-    #     option_run()
-    # elif "b" in answer:
-    #     printSleep("You decided to throw another rock, as if the first")
-    #     printSleep("rock thrown did much damage. The rock flew well over the ")
-    #     printSleep("orcs head. You missed. \n\nYou died!")
-    # elif "c" in answer:
-    #     option_cave()
-    # else:
-    #     print(choices)
-    #     option_rock()
+    printSleep("The orc is stunned, but regains control. He begins ")
+    printSleep("running towards you again. Will you:")
+    printSleep("A. Run\nB. Throw another rock\nC. Run towards a nearby cave\n")
+    answer = input(">>> ").lower()
+    if "a" in answer:
+        option_run()
+    elif "b" in answer:
+        printSleep("You decided to throw another rock, as if the first")
+        printSleep("rock thrown did much damage. The rock flew well over the ")
+        printSleep("orcs head. You missed. \n\nYou died!")
+    elif "c" in answer:
+        option_cave()
+    else:
+        print(choices)
+        option_rock()
 
 
 def threePointLine():
     printSleep("You stand in front of the three point line. You have ")
     printSleep("several options. ")
-    # answer = input(">>> ").lower()
-    # if "y" in answer:
-    #     sword = 1
-    # else:
-    #     sword = 0
     while True:
         printSleep("What do you do next?")
         printSleep("A. Cross over\nB. Throw 3 point\nC. Run towards basket")
@@ -73,21 +69,20 @@ def threePointLine():
             printSleep("Really? You're going to hide in the dark? I think ")
             printSleep("orcs can see very well in the dark, right? Not sure, but ")
             printSleep("I'm going with YES, so...\n\nYou died!")
-            break()
+            break
         elif "b" in answer:
             printSleep("You laid in wait. The shimmering sword attracted ")
             printSleep("the orc, which thought you were no match. As he walked ")
             printSleep("closer and closer, your heart beat rapidly. As the orc ")
             printSleep("reached out to grab the sword, you pierced the blade into ")
             printSleep("its chest. \n\nYou survived!")
-            break()
+            break
         elif "c" in answer:
             printSleep("As the orc enters the dark cave, you sliently ")
             printSleep("sneak out. You're several feet away, but the orc turns ")
             printSleep("around and sees you running.")
             option_run()
-            break()
-
+            break
 
 
 def scottiePippen():
@@ -106,6 +101,7 @@ def scottiePippen():
         printSleep(choices)
         scottiePippen()
 
+
 def stealBall():
     printSleep("You stole the ball from Scottie Pippen. The clock is running.")
     printSleep("7...6...5...You pass the ball to your teammate.")
@@ -114,12 +110,24 @@ def stealBall():
     if "y" in answer:
         assit += 1
         print("Your teammates throw and hits!!!! Miami Heat wins 91:88")
-    elif:
+    elif "n" in answer:
         printSleep("You did nothing. Your teammates misses the throw. ")
         printSleep("Game ends. It is a tie 88:88")
+
     else:
         printSleep("Please choose.")
         stealBall()
+
+
+def replay():
+    gamechoice = input("You wanna play again [Y/N]?"").lower()
+    while True:
+    if "y" in gamechoice:
+        start()
+        break
+    elif "n" in gamechoice:
+        printSleep("Thank you \f\o\r playing the game!")
+        break
 
 
 start()
