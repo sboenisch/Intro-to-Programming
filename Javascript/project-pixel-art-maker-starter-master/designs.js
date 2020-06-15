@@ -3,20 +3,22 @@ function makeGrid() {
     // Get Inputs
     const width = document.getElementById("inputWidth").value;
     const height = document.getElementById("inputHeight").value;
-    const grid = document.getElementById("pixelCanvas");
-    grid.innerHTML = '';
+    const table = document.getElementById("pixelCanvas");
+    table.innerHTML = '';
     // Create Rows
-    for(var i = 0; i < height; i++){
-        var row = document.createElement('tr');
+    for(let i = 0; i < height; i++){
+        // let row = document.createElement('tr');
+        let row = table.insertRow(i);
         // Create Columns
-        for(var y = 0; y < width; y++){
-            var cell = document.createElement('td');
+        for(let y = 0; y < width; y++){
+            // let cell = document.createElement('td');
+            let cell = row.insertCell(y);
             // Content of cell is empty
-            cell.append(document.createTextNode(''));
-            row.append(cell);
+            // cell.append(document.createTextNode(''));
+            // row.append(cell);
             cell.addEventListener('click',colorClick);
         };
-        grid.appendChild(row);
+        //grid.appendChild(row);
     };
 };
 
@@ -24,7 +26,7 @@ function makeGrid() {
 // Change Backgroundcolor after click of cell
 function colorClick(c){
     const color = document.getElementById("colorPicker").value;
-    var clickedOn = c.target;
+    let clickedOn = c.target;
     clickedOn.style.backgroundColor =  color;
 }
 
